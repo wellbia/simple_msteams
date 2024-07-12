@@ -1,5 +1,7 @@
+import certifi
 import typing
 import requests
+
 
 
 class Client:
@@ -29,7 +31,7 @@ class Client:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
-                            "body": data,
+                            "body": [data],
                         },
                     }
                 ],
@@ -40,6 +42,7 @@ class Client:
             json=data,
             headers={"Content-Type": "application/json"},
             timeout=self.timeout,
+            verify=certifi.where()
         )
 
     def safe_send(self, data: typing.Union[str, dict]) -> requests.Response:
