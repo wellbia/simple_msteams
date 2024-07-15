@@ -36,6 +36,18 @@ class Client:
                     }
                 ],
             }
+        elif isinstance(data, list):
+            data = {
+                "attachments": [
+                    {
+                        "contentType": "application/vnd.microsoft.card.adaptive",
+                        "content": {
+                            "type": "AdaptiveCard",
+                            "body": data,
+                        },
+                    }
+                ],
+            }
 
         return requests.post(
             self.hookurl,
