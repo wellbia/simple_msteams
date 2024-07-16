@@ -19,6 +19,7 @@ class Client:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
+                            "msteams": {"width": "full"},
                             "body": [{"type": "TextBlock", "text": fdata}],
                         },
                     }
@@ -31,6 +32,7 @@ class Client:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
+                            "msteams": {"width": "full"},
                             "body": [data],
                         },
                     }
@@ -43,6 +45,7 @@ class Client:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
+                            "msteams": {"width": "full"},
                             "body": data,
                         },
                     }
