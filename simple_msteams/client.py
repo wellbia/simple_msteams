@@ -3,7 +3,6 @@ import typing
 import requests
 
 
-
 class Client:
     def __init__(self, hookurl: str, timeout: int = 15):
         self.hookurl = hookurl
@@ -19,6 +18,7 @@ class Client:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
+                            "version": "1.2",
                             "msteams": {"width": "full"},
                             "body": [{"type": "TextBlock", "text": fdata}],
                         },
@@ -32,6 +32,7 @@ class Client:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
+                            "version": "1.2",
                             "msteams": {"width": "full"},
                             "body": [data],
                         },
@@ -45,6 +46,7 @@ class Client:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
+                            "version": "1.2",
                             "msteams": {"width": "full"},
                             "body": data,
                         },
@@ -57,7 +59,7 @@ class Client:
             json=data,
             headers={"Content-Type": "application/json"},
             timeout=self.timeout,
-            verify=certifi.where()
+            verify=certifi.where(),
         )
 
     def safe_send(self, data: typing.Union[str, dict]) -> requests.Response:
